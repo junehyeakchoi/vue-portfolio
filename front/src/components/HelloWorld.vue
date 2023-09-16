@@ -4,8 +4,8 @@
      
 
         <div class="text-body-2 font-weight-light mb-n1" >
-          <div style="width:40%;height:300px; background-image: url('https://s1.best-wallpaper.net/wallpaper/m/1606/Baseball-on-the-ground_m.webp'); background-size: contain;">
-            <h1 class="text-h2 font-weight-bold">BASEBALL</h1>
+          <div style="width:100vw;height:100vh; background-image: url('https://downloadwap.com/thumbs2/wallpapers/p2ls/new/37/LWPahwn3.jpg'); background-size: contain; display: flex; align-items: center;justify-content: center;">
+            <h1 class="text-h2 font-weight-bold" style="padding-right: 100px;">BASEBALL</h1>
           
           </div>
 

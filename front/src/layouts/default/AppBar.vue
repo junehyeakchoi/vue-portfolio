@@ -1,4 +1,5 @@
 <template>
+  
   <v-navigation-drawer
     permanent
     theme="dark"
@@ -7,7 +8,7 @@
       <v-list-item title="BASEBALL" @click="moveHome"></v-list-item>
       <v-list-item v-for="(item, i) in yearList" :key="item" :title="item.year" :value="i" @click="select(item, $event)"></v-list-item>
     </v-list>
-  </v-navigation-drawer>
+  </v-navigation-drawer>    
 </template>
 <script>
 export default {
@@ -84,3 +85,4 @@ export default {
   }
 }
 </script>
+
