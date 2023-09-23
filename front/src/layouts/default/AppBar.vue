@@ -5,7 +5,9 @@
     theme="dark"
   >
     <v-list nav>
-      <v-list-item title="BASEBALL" @click="moveHome"></v-list-item>
+      <v-list-item  title="BASEBALL" @click="moveHome"></v-list-item>
+
+       
       <v-list-item v-for="(item, i) in yearList" :key="item" :title="item.year" :value="i" @click="select(item, $event)"></v-list-item>
     </v-list>
   </v-navigation-drawer>    
@@ -24,6 +26,7 @@ export default {
   data() {
     return {
       yearList: [{
+        
         year: 2017,
         mvp: '노시환',
         homerun: '아니',
@@ -86,3 +89,8 @@ export default {
 }
 </script>
 
+<style>
+.v-list-item--nav .v-list-item-title {
+    font-size:3.8125rem;
+}
+</style>
