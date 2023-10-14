@@ -108,6 +108,11 @@ export default {
           datasets: [
             {
               data: data,
+              backgroundColor: [
+                "rgba(255, 218, 97, 0.5)",
+                "rgba(207, 207, 207, 0.5)",
+                "rgba(235, 125, 0, 0.5)",
+              ],
             },
           ],
         },
@@ -131,6 +136,11 @@ export default {
           datasets: [
             {
               data: data,
+              backgroundColor: [
+                "rgba(255, 218, 97, 0.5)",
+                "rgba(207, 207, 207, 0.5)",
+                "rgba(235, 125, 0, 0.5)",
+              ],
             },
           ],
         },
@@ -145,7 +155,6 @@ export default {
         labels.push(line[1]);
         data.push(line[2]);
       });
-
       this.scoreChart = new Chart(score_ctx, {
         type: "bar",
         data: {
@@ -153,36 +162,51 @@ export default {
           datasets: [
             {
               data: data,
+              backgroundColor: [
+                "rgba(255, 218, 97, 0.5)",
+                "rgba(207, 207, 207, 0.5)",
+                "rgba(235, 125, 0, 0.5)",
+              ],
             },
           ],
         },
         options: this.opt,
       });
-
+      let hits = this.$route.query.team_hits;
+      hits = hits.map(Number);
+      let team = this.$route.query.teams;
       const hits_ctx = document.getElementById("hit_rate").getContext("2d");
       this.circleChart = new Chart(hits_ctx, {
         type: "doughnut",
         data: {
-          labels: ["LG", "한화", "넥센"],
+          labels: team,
           datasets: [
             {
-              label: "HELLO",
-              data: [100, 10, 50],
+              data: hits,
               backgroundColor: [
-                "rgba(200, 99, 132, 0.5)",
-                "rgba(200, 0, 132, 0.5)",
-                "rgba(230, 206, 86, 0.5)",
-                "rgba(230, 0, 86, 0.5)",
-                "rgba(128, 102, 255, 0.5)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(131, 236, 189, 0.51)",
+                "rgba(131, 0, 189, 0.51)",
+                "rgba(131, 219, 236, 0.51)",
                 "rgba(128, 0, 255, 0.5)",
-                "rgba(75, 192, 192, 0.5)",
-                "rgba(75, 0, 192, 0.5)",
-                "rgba(75, 255, 0, 0.5)",
-                "rgba(75, 192, 192, 0.5)",
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
               ],
               // hoverOffset: 11,
             },
           ],
+        },
+        options: {
+          plugins: {
+            datalabels: {
+              formatter: (value) => {
+                return value + "%";
+              },
+            },
+          },
         },
       });
     },
@@ -201,7 +225,7 @@ export default {
       circleChart: null,
       opt: {
         indexAxis: "y",
-        backgroundColor: ["#FFD70077", "#BEBEBE", "#8B451377"],
+
         barThickness: 15,
         borderWidth: 0,
       },
@@ -210,20 +234,5 @@ export default {
   mounted() {
     this.renderChart();
   },
-};
-const data = {
-  labels: ["Red", "Blue", "Yellow"],
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [300, 50, 100],
-      backgroundColor: [
-        "rgb(255, 99, 132)",
-        "rgb(54, 162, 235)",
-        "rgb(255, 205, 86)",
-      ],
-      hoverOffset: 4,
-    },
-  ],
 };
 </script>
